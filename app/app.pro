@@ -85,3 +85,6 @@ linux*|mac*|freebsd {
 	Release:DEFINES += NDEBUG=1
 	Debug:DEFINES += _DEBUG
 }
+
+HEADERS += \
+	src/Replay.h
