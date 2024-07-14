@@ -26,15 +26,6 @@ jobs:
       with:
         submodules: 'recursive'
 
-    - name: Checkout subrepos
-      if: "!startsWith(matrix.os, 'windows')"
-      run: sh update_repository.sh
-
-    - name: Checkout subrepos
-      if: "startsWith(matrix.os, 'windows')"
-      shell: cmd
-      run: update_repository.bat
-
     - name: Install Qt
       uses: jurplel/install-qt-action@v4
       with:
