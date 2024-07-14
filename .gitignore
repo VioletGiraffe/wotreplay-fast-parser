@@ -16,6 +16,8 @@ set_qt_paths.bat
 .vs/
 ClassDiagram.cd
 
+3rdparty_vcpkg/
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/

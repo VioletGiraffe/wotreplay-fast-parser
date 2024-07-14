@@ -26,6 +26,15 @@ jobs:
       with:
         submodules: 'recursive'
 
+    - name: Checkout subrepos
+      if: "!startsWith(matrix.os, 'windows')"
+      run: sh update_repository.sh
+
+    - name: Checkout subrepos
+      if: "startsWith(matrix.os, 'windows')"
+      shell: cmd
+      run: update_repository.bat
+
     - name: Install Qt
       uses: jurplel/install-qt-action@v4
       with:
@@ -39,6 +48,7 @@ jobs:
       if: startsWith(matrix.os, 'windows')
       shell: cmd
       run: |
+        install_3rdparty.bat
         %QT_ROOT_DIR%\bin\qmake.exe -v
         call "%programfiles%\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
         %QT_ROOT_DIR%\bin\qmake.exe -tp vc -r
@@ -49,6 +59,7 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
         clang --version
+        sh install_3rdparty.sh
         $QT_ROOT_DIR/bin/qmake -r
         make -j
 
@@ -61,6 +72,7 @@ jobs:
         sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 50
         g++ --version
 
+        sh install_3rdparty.sh
         $QT_ROOT_DIR/bin/qmake -r
         make -j
 

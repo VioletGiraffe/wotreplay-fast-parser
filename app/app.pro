@@ -3,11 +3,11 @@
 ###################################################
 
 TEMPLATE = app
-TARGET   = NewAwesomeApplication
+TARGET   = parser
 
-#QT = core gui widgets network qt5compat
-CONFIG -= qt
-CONFIG += console
+QT = core gui widgets
+#CONFIG -= qt
+#CONFIG += console
 
 CONFIG += strict_c++ c++2b
 
@@ -32,7 +32,8 @@ RCC_DIR     = ../build/$${OUTPUT_DIR}/$${TARGET}
 INCLUDEPATH += \
 	../qtutils \
 	../cpputils \
-	../cpp-template-utils
+	../cpp-template-utils \
+	../3rdparty_vcpkg/x64-windows-static-md/include
 
 ###################################################
 #                 SOURCES
