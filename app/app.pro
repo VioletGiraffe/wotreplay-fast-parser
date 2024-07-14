@@ -40,7 +40,9 @@ INCLUDEPATH += \
 ###################################################
 
 SOURCES += \
-	src/main.cpp
+	src/main.cpp \
+	src/mainwindow.cpp \
+	src/parser.cpp
 
 ###################################################
 #                 LIBS
@@ -87,4 +89,9 @@ linux*|mac*|freebsd {
 }
 
 HEADERS += \
-	src/Replay.h
+	src/Replay.h \
+	src/mainwindow.h \
+	src/parser.h
+
+FORMS += \
+	src/mainwindow.ui
